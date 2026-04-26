@@ -1,3 +1,4 @@
+/* global process, Buffer */
 import fs from "node:fs";
 import path from "node:path";
 
@@ -145,15 +146,15 @@ function validateSkill() {
     }
   }
 
-  if (frontmatter.license !== undefined && frontmatter.license.trim().length === 0) {
+  if (frontmatter["license"] !== undefined && frontmatter["license"].trim().length === 0) {
     fail("license must be non-empty when provided.");
   }
 
-  if (frontmatter.compatibility !== undefined) {
-    if (frontmatter.compatibility.trim().length === 0) {
+  if (frontmatter["compatibility"] !== undefined) {
+    if (frontmatter["compatibility"].trim().length === 0) {
       fail("compatibility must be non-empty when provided.");
     }
-    if (frontmatter.compatibility.length > 500) {
+    if (frontmatter["compatibility"].length > 500) {
       fail("compatibility must be 500 characters or fewer.");
     }
   }
@@ -183,7 +184,7 @@ function validateSkill() {
 
 function validateReferences() {
   const markdownFiles = walk("src").filter((file) => file.endsWith(".md"));
-  const linkPattern = /\[[^\]]+\]\(([^)]+)\)/g;
+  const linkPattern = /\[[^\]]+]\(([^)]+)\)/g;
 
   for (const file of markdownFiles) {
     const text = readText(file);

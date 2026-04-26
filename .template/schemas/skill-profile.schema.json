@@ -9,34 +9,34 @@
     "useWhen",
     "doNotUseWhen"
   ],
-  "properties": {
-    "name": {
+  "patternProperties": {
+    "^name$": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
-    "description": {
+    "^description$": {
       "type": "string",
       "minLength": 80
     },
-    "targetUser": {
+    "^targetUser$": {
       "type": "string"
     },
-    "useWhen": {
+    "^useWhen$": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "doNotUseWhen": {
+    "^doNotUseWhen$": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "maintenanceCadence": {
+    "^maintenanceCadence$": {
       "type": "string"
     },
-    "assumptions": {
+    "^assumptions$": {
       "type": "array",
       "items": {
         "type": "string"
