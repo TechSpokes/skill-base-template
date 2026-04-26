@@ -1,0 +1,29 @@
+title: "Show And Tell"
+labels: ["showcase", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share a skill repository or workflow created from Skill Base Template.
+  - type: input
+    id: repository
+    attributes:
+      label: Repository Or Project
+      description: Link to the generated repository or describe the project.
+  - type: textarea
+    id: skill
+    attributes:
+      label: Skill Description
+      description: What does the generated skill help agents do?
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow Notes
+      description: What worked well or what needed adaptation?
+  - type: textarea
+    id: lessons
+    attributes:
+      label: Lessons Learned
+      description: What would help others using this template?

@@ -1,0 +1,33 @@
+title: "Questions And Help"
+labels: ["question", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask questions about using Skill Base Template.
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      options:
+        - Getting started
+        - GitHub template flow
+        - Intake preparation
+        - Agent bootstrap workflow
+        - Generated skill structure
+        - Validation or release
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What specific help do you need?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Share commands, repository state, or public examples. Do not include secrets or private intake.

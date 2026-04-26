@@ -1,0 +1,111 @@
+name: Draft Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to package, for example v0.1.0"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  draft-release:
+    name: Build release assets and draft release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out tagged commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Resolve release metadata
+        id: meta
+        shell: bash
+        env:
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+        run: |
+          set -euo pipefail
+
+          tag="${INPUT_TAG:-${GITHUB_REF_NAME}}"
+          notes_file="docs/releases/${tag}.md"
+
+          if [[ ! "${tag}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9.-]+)?$ ]]; then
+            echo "Tag '${tag}' does not match expected vX.Y.Z format." >&2
+            exit 1
+          fi
+
+          if [[ ! -f "${notes_file}" ]]; then
+            echo "Missing release notes file: ${notes_file}" >&2
+            exit 1
+          fi
+
+          if [[ ! -f CHANGELOG.md ]]; then
+            echo "Missing CHANGELOG.md." >&2
+            exit 1
+          fi
+
+          if ! grep -Fq "## [${tag}]" CHANGELOG.md; then
+            echo "CHANGELOG.md is missing required section: ## [${tag}]" >&2
+            exit 1
+          fi
+
+          {
+            echo "tag=${tag}"
+            echo "notes_file=${notes_file}"
+            echo "release_title=${tag}"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate skill
+        run: npm run validate
+
+      - name: Package release assets
+        run: npm run package -- ${{ steps.meta.outputs.tag }}
+
+      - name: Create or update draft release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.meta.outputs.tag }}
+          RELEASE_TITLE: ${{ steps.meta.outputs.release_title }}
+          NOTES_FILE: ${{ steps.meta.outputs.notes_file }}
+        run: |
+          set -euo pipefail
+
+          if gh release view "${TAG_NAME}" >/dev/null 2>&1; then
+            is_draft="$(gh release view "${TAG_NAME}" --json isDraft --jq '.isDraft')"
+            if [[ "${is_draft}" != "true" ]]; then
+              echo "Release ${TAG_NAME} already exists and is not a draft. Refusing to mutate a published release." >&2
+              exit 1
+            fi
+
+            gh release edit "${TAG_NAME}" \
+              --title "${RELEASE_TITLE}" \
+              --notes-file "${NOTES_FILE}"
+          else
+            gh release create "${TAG_NAME}" \
+              --draft \
+              --title "${RELEASE_TITLE}" \
+              --notes-file "${NOTES_FILE}"
+          fi
+
+      - name: Upload release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.meta.outputs.tag }}
+        run: |
+          set -euo pipefail
+
+          gh release upload "${TAG_NAME}" dist/assets/*.zip --clobber

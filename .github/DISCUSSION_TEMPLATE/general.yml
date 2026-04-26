@@ -1,0 +1,33 @@
+title: "General Discussion"
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start a general discussion about Skill Base Template.
+  - type: dropdown
+    id: topic-category
+    attributes:
+      label: Topic Category
+      options:
+        - Template direction
+        - Agent skill repository patterns
+        - Bootstrap workflow
+        - Validation and release
+        - Documentation
+        - Community adoption
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: discussion-topic
+    attributes:
+      label: Discussion Topic
+      description: What would you like to discuss?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Add background that would help others understand the topic.

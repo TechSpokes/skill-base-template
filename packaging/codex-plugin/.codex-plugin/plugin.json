@@ -1,0 +1,30 @@
+{
+  "name": "placeholder-skill",
+  "version": "0.1.0",
+  "description": "Placeholder plugin manifest for a generated agent skill.",
+  "author": {
+    "name": "Template Author"
+  },
+  "homepage": "https://github.com/OWNER/REPOSITORY",
+  "repository": "https://github.com/OWNER/REPOSITORY",
+  "keywords": [
+    "agent-skill",
+    "codex-plugin"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Placeholder Skill",
+    "shortDescription": "Placeholder skill package generated from the template.",
+    "longDescription": "Replace this manifest when the agent generates the real skill.",
+    "developerName": "Template Author",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/OWNER/REPOSITORY",
+    "defaultPrompt": [
+      "Build the skill from intake."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

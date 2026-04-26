@@ -1,0 +1,14 @@
+{
+  "name": "placeholder-skill",
+  "version": "0.1.0",
+  "description": "Placeholder plugin manifest for a generated agent skill.",
+  "author": {
+    "name": "Template Author"
+  },
+  "homepage": "https://github.com/OWNER/REPOSITORY",
+  "repository": "https://github.com/OWNER/REPOSITORY",
+  "keywords": [
+    "agent-skill",
+    "claude-plugin"
+  ]
+}

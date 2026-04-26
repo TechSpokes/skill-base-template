@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest an improvement to the template or generated repository workflow
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem would this improvement solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the change and where it would belong.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Bootstrap workflow
+        - Agent instructions
+        - SKILL.md scaffold
+        - Validation
+        - Packaging
+        - Release workflow
+        - Documentation
+        - Community maintenance
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: generated-impact
+    attributes:
+      label: Impact on generated repositories
+      description: How would this change affect repositories created from the template?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

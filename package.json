@@ -1,0 +1,10 @@
+{
+  "name": "skill-base-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skill.mjs",
+    "package": "node scripts/package-release.mjs"
+  }
+}

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/TechSpokes/skill-base-template/blob/main/README.md
+    about: Read the public template documentation.
+  - name: Discussions
+    url: https://github.com/TechSpokes/skill-base-template/discussions
+    about: Ask questions, share generated skill repositories, or discuss ideas.
+  - name: Commercial Support
+    url: https://www.techspokes.com
+    about: Professional support and consulting from TechSpokes.

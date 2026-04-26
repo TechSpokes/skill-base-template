@@ -1,0 +1,41 @@
+title: "Ideas And Suggestions"
+labels: ["enhancement", "discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share ideas for improving Skill Base Template or the generated repository lifecycle.
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What improvement would you like to see?
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: What problem does this solve?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Intake workflow
+        - Bootstrap instructions
+        - Generated skill structure
+        - Validation
+        - Release packaging
+        - Maintenance docs
+        - Other
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I can help test this idea.
+        - label: I can provide an example generated skill repository.
+        - label: I can help with documentation.
