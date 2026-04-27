@@ -58,6 +58,7 @@ This file is a bootstrap directive. Its recipient is an AI coding agent working 
 Read these files before changing the repository:
 
 - `AGENTS.md`
+- `.template/bootstrap/intake-adequacy-and-resolution.md`
 - `.template/bootstrap/theory-context.md`
 - `.template/bootstrap/skill-quality-standard.md`
 - `.template/bootstrap/cross-intelligence-communication.md`
@@ -66,6 +67,26 @@ Read these files before changing the repository:
 - `.template/bootstrap/cleanup-and-boundaries.md`
 - `docs/BOOTSTRAP-WORKFLOW.md`
 - `.intake/README.md`
+
+## Phase 0: Intake Adequacy And Resolution
+
+Before skill design, determine whether `.intake/` contains enough evidence to build a transferable skill.
+
+Use `.template/bootstrap/intake-adequacy-and-resolution.md` for the full procedure. The agent must assess the skill goal, activation boundary, core workflow, required inputs, expected outputs, safety constraints, verification method, and maintenance risks.
+
+If intake is adequate, record the assessment and continue to Phase 1.
+
+If intake is missing build-critical evidence, resolve the gap through extraction, inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Do not start `src/SKILL.md` until the build readiness gate passes.
+
+Required temporary artifacts:
+
+- `.template/state/intake-assessment.md`
+- `.template/state/intake-resolution-plan.md` when resolution work is needed
+- `.template/state/build-readiness.md`
+
+Durable evidence created during resolution belongs under `.intake/`. Temporary bootstrap reasoning belongs under `.template/state/`.
+
+Rationale: Users may start with empty intake, a short idea, rough examples, or a request for exploration. The agent should preserve user convenience without inventing a skill from unsupported assumptions.
 
 ## Phase 1: Intake Inventory
 
@@ -178,9 +199,10 @@ Actions:
 - Copy `.template/generated/.github/workflows/ci.yml` to `.github/workflows/ci.yml`.
 - Copy `.template/generated/.github/workflows/release-draft.yml` to `.github/workflows/release-draft.yml`.
 - Delete `.github/workflows/template-ci.yml`.
+- Delete `.github/workflows/template-release-draft.yml`.
 - Update workflow names, release title logic, and package commands if the generated skill needs a different process.
 
-Rationale: the template repository should not publish placeholder skill releases. Generated skill repositories need release automation, but the template repository only needs scaffold validation.
+Rationale: template-owned workflows are for template maintenance, not generated repositories. Generated skill repositories need their own release automation after the placeholder skill is replaced.
 
 ## Phase 6: Package And Validate
 

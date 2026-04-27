@@ -4,6 +4,16 @@
 
 - No unreleased changes.
 
+## [v1.1.0]
+
+- Add Phase 0 intake adequacy and resolution workflow before skill construction.
+- Add bootstrap guidance for empty, weak, conflicting, exploratory, overbroad, tool-dependent, and high-risk intake.
+- Add a build readiness gate that blocks `src/SKILL.md` construction until critical dimensions are supported.
+- Add resolution paths for extraction, inference, discovery, experiments, scope narrowing, human clarification, and stop decisions.
+- Document pitfalls for research sprawl, premature construction, questionnaire transfer, false certainty, overfitting, unsafe discovery, and scope inflation.
+- Add template draft release workflow and separate template release documentation for `v*.*.*` tags.
+- Update quickstart, bootstrap workflow, architecture, intake, and agent instructions to support starting from a short skill idea.
+
 ## [v1.0.0]
 
 - Prepare public Skill Base Template release.

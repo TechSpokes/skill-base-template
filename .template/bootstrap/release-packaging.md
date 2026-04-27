@@ -69,10 +69,8 @@ The draft release workflow should package from the tagged commit. It should refu
 
 Rationale: A tag is a promise that the repository state, docs, package manifests, and release notes describe the same artifact.
 
-## Template Repository Rule
+## Bootstrap Location
 
-The template repository should not keep generated skill release workflows active in `.github/workflows/`.
+Generated skill release workflows live in `.template/generated/.github/workflows/` until bootstrap installs them into the generated repository.
 
-Generated skill workflows live in `.template/generated/.github/workflows/` until bootstrap installs them into the generated repository.
-
-Rationale: release workflows are correct for generated skill repositories, but unsafe for the template repository because they can publish placeholder skill assets if a template tag is pushed.
+Rationale: this file describes generated skill packaging after bootstrap cleanup. Template repository releases use a separate process documented in `docs/TEMPLATE-RELEASING.md`.

@@ -41,6 +41,8 @@ When instructions appear to conflict, choose the option that best preserves the 
 
 - Treat `.intake/` as the only user-authored source area.
 - Read `.template/bootstrap/build-skill-from-intake.md` before changing skill files.
+- Run the intake adequacy gate before skill design, even when `.intake/` is empty or only contains a short idea.
+- Do not start `src/SKILL.md` until the build readiness gate passes.
 - Treat `.template/` as bootstrap control instructions, not domain source material.
 - Do not copy `.template/` content into `src/` unless the content is explicitly transformed into generic maintenance guidance.
 - Exclude `.template/`, `.intake/`, `tmp/`, `dist/`, `.git/`, and `.idea/` from release artifacts.
@@ -49,6 +51,7 @@ When instructions appear to conflict, choose the option that best preserves the 
 ## Must-read documents
 
 - `.template/bootstrap/build-skill-from-intake.md` - Bootstrap workflow from raw intake to finished skill.
+- `.template/bootstrap/intake-adequacy-and-resolution.md` - How to handle empty, weak, conflicting, or exploratory intake.
 - `.template/bootstrap/theory-context.md` - Adapted reasoning model from the underlying communication theory.
 - `.template/bootstrap/skill-quality-standard.md` - Quality bar for `SKILL.md`, references, fixtures, and docs.
 - `.template/bootstrap/cross-intelligence-communication.md` - Practical communication rules for generated agent instructions.
@@ -76,7 +79,11 @@ When instructions appear to conflict, choose the option that best preserves the 
 
 ## Agent Guidelines
 
-Start by inventorying `.intake/` and identifying the skill domain, user task, trigger phrases, boundaries, workflows, reusable references, and verification prompts. If the intake is incomplete, make conservative assumptions and record them in the build notes.
+Start by assessing intake adequacy. Identify whether the available material can support a skill goal, activation boundary, workflow, required inputs, expected outputs, safety constraints, verification method, and maintenance risks.
+
+If intake is incomplete, resolve the gap through extraction, conservative inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Record temporary reasoning under `.template/state/` and durable evidence under `.intake/`.
+
+After the adequacy gate passes, inventory `.intake/` and identify the skill domain, user task, trigger phrases, boundaries, workflows, reusable references, and verification prompts.
 
 Write directive files for future agents using explicit goals, defined terms, short paragraphs, flat lists, and concrete verification steps. Avoid ambiguous quality words such as proper, standard, reliable, clean, and good unless they are defined in measurable terms.
 

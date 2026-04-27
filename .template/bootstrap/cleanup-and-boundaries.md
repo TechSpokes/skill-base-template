@@ -83,6 +83,7 @@ At minimum, check:
 - `.github/PULL_REQUEST_TEMPLATE.md` lists checks relevant to the generated skill.
 - `.github/copilot-instructions.md` points to the generated repository `AGENTS.md` and validation commands.
 - `.github/workflows/template-ci.yml` is removed.
+- `.github/workflows/template-release-draft.yml` is removed.
 - `.github/workflows/ci.yml` and `.github/workflows/release-draft.yml` are installed from `.template/generated/.github/workflows/` or rewritten for the generated skill.
 - `CONTRIBUTING.md`, `SUPPORT.md`, and `SECURITY.md` describe the generated repository's process.
 

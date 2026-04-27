@@ -33,6 +33,8 @@ Important areas:
 
 The reason to keep these areas separate is that each area has a different authority level. Intake is evidence from the user. Template files are instructions for the builder. `src/` becomes the runtime product.
 
+Bootstrap mode includes an intake adequacy step before skill construction. This step determines whether the available intake can support a transferable skill or whether the agent must resolve missing evidence first.
+
 ## Skill Mode
 
 Skill mode is the final state after the agent builds the skill and cleans up bootstrap files.
@@ -46,7 +48,7 @@ Important areas:
 - `.github/` explains how GitHub issues, discussions, reviews, funding, and repository automation work for the generated skill.
 - `.template/` is deleted.
 
-Generated skill workflows are installed from `.template/generated/.github/workflows/` during cleanup. The template repository keeps only `template-ci.yml` active so it validates the scaffold without publishing placeholder releases.
+Generated skill workflows are installed from `.template/generated/.github/workflows/` during cleanup. The template repository keeps only template-owned workflows active so it validates the scaffold and drafts template releases without publishing placeholder skill assets.
 
 The reason `.template/` is deleted is not tidiness. It prevents future agents from optimizing for bootstrap goals after the repository's purpose has changed.
 
@@ -58,6 +60,8 @@ During bootstrap, authority flows in this order:
 2. `.template/bootstrap/` instructions.
 3. `.intake/` source material.
 4. Existing placeholder files.
+
+When `.intake/` is empty or insufficient, the agent may create temporary assessment files under `.template/state/` and durable evidence under `.intake/`. The assessment files guide construction while bootstrap mode is active. The evidence files become part of the intake boundary and must still be excluded from release artifacts unless transformed into safe runtime references.
 
 During maintenance mode, authority changes:
 

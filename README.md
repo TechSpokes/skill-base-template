@@ -2,7 +2,7 @@
 
 Skill Base Template is a public GitHub repository template by TechSpokes for creating structured, validated, releasable agent skill repositories from raw intake material.
 
-Use this template when you want a repeatable path from a skill idea to a maintained repository with `SKILL.md`, references, validation scripts, release workflows, and plugin packaging. The template is designed for agent-assisted creation: the user places source material in `.intake/`, and an AI coding agent turns that material into a standalone skill repository.
+Use this template when you want a repeatable path from a skill idea to a maintained repository with `SKILL.md`, references, validation scripts, release workflows, and plugin packaging. The template is designed for agent-assisted creation: the user places source material or a short skill idea in `.intake/`, and an AI coding agent turns that material into a standalone skill repository.
 
 ## Why It Exists
 
@@ -13,11 +13,12 @@ This template promotes a structured workflow for automated creation, validation,
 ## What It Provides
 
 - Intake-driven skill generation from `.intake/`.
+- Intake adequacy checks for empty, weak, conflicting, or exploratory starts.
 - Bootstrap instructions for AI coding agents.
 - A portable `src/SKILL.md` package layout.
 - Reference, asset, and fixture folders for progressive disclosure.
 - Validation for skill frontmatter, manifests, links, and release boundaries.
-- Template-safe CI plus generated skill release workflows installed during bootstrap cleanup.
+- Template-safe CI, template draft releases, and generated skill release workflows installed during bootstrap cleanup.
 - A cleanup path that converts the generated repository into a standalone maintained skill repo.
 
 ## Intended Users
@@ -37,10 +38,11 @@ It is also useful for organizations adopting structured agent workflows across m
 7. Leave `Include all branches` unchecked unless you intentionally need every branch from the template.
 8. Click `Create repository from template`.
 9. Clone the new repository GitHub created, not the template repository.
-10. Add source material, examples, and rough notes to `.intake/`.
+10. Add source material, examples, rough notes, or a short skill idea to `.intake/`.
 11. Ask an AI coding agent to build the skill from intake.
-12. Review the generated skill, docs, packaging, and validation results.
-13. Publish release assets when the generated repository is ready.
+12. Let the agent assess and resolve intake gaps before it builds the skill.
+13. Review the generated skill, docs, packaging, and validation results.
+14. Publish release assets when the generated repository is ready.
 
 Detailed workflow: [docs/BOOTSTRAP-WORKFLOW.md](docs/BOOTSTRAP-WORKFLOW.md).
 
@@ -50,7 +52,8 @@ Detailed workflow: [docs/BOOTSTRAP-WORKFLOW.md](docs/BOOTSTRAP-WORKFLOW.md).
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - Repository modes, authority model, and design intent.
 - [docs/QUICKSTART.md](docs/QUICKSTART.md) - Short usage path for creating a skill repository.
 - [docs/INSTALL.md](docs/INSTALL.md) - How generated skill packages are installed.
-- [docs/RELEASING.md](docs/RELEASING.md) - Release checklist and packaging workflow.
+- [docs/RELEASING.md](docs/RELEASING.md) - Generated skill release checklist and packaging workflow.
+- [docs/TEMPLATE-RELEASING.md](docs/TEMPLATE-RELEASING.md) - Template repository release workflow.
 - [docs/PROVENANCE.md](docs/PROVENANCE.md) - Attribution and distilled-source notes.
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines.
 - [SUPPORT.md](SUPPORT.md) - Support paths and contact options.

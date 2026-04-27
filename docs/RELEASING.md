@@ -1,6 +1,8 @@
-# Releasing
+# Generated Skill Releasing
 
-This template contains release automation for generated skill repositories, but the release workflow is not active in the template repository itself.
+This document describes release packaging for generated skill repositories after bootstrap cleanup.
+
+Template repository releases use a separate process. See `docs/TEMPLATE-RELEASING.md`.
 
 Generated skill release workflows live under `.template/generated/.github/workflows/` until the bootstrap agent installs them during cleanup.
 
@@ -40,5 +42,3 @@ Use the intended tag. Assets are written to `dist/assets/`.
 ## GitHub Release
 
 After bootstrap cleanup, pushing a `vX.Y.Z` tag in a generated skill repository runs `.github/workflows/release-draft.yml`. The workflow creates or updates a draft release and uploads ZIP assets.
-
-The template repository keeps only `.github/workflows/template-ci.yml` active. This prevents template tags from publishing placeholder skill assets.
