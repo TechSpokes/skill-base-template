@@ -54,9 +54,16 @@ function resetDir(directory) {
   fs.mkdirSync(directory, { recursive: true });
 }
 
+// Copy a directory into the release stage, excluding scaffolding that should not ship.
+// `.gitkeep` placeholders are dropped, and any directory left empty after copying (for
+// example an assets folder that only held a `.gitkeep`) is pruned, so deliverables contain
+// only real skill content. Pruning runs after recursion, so nested empty directories go too.
 function copyDir(source, destination) {
   fs.mkdirSync(destination, { recursive: true });
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
+    if (entry.name === ".gitkeep") {
+      continue;
+    }
     const sourcePath = path.join(source, entry.name);
     const destinationPath = path.join(destination, entry.name);
     if (entry.isDirectory()) {
@@ -64,6 +71,9 @@ function copyDir(source, destination) {
     } else {
       fs.copyFileSync(sourcePath, destinationPath);
     }
+  }
+  if (fs.readdirSync(destination).length === 0) {
+    fs.rmdirSync(destination);
   }
 }
 

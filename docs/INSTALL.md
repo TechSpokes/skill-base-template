@@ -10,15 +10,15 @@ The install docs focus on runtime artifacts because generated repositories conta
 
 ## Standalone Skill
 
-Copy the generated skill folder from a release ZIP into a supported skill location.
+Copy the generated skill folder from a release ZIP into a skill location your tools read. Keep `SKILL.md` and its support folders together so relative paths remain valid.
 
-Common locations include:
+The cross-tool standard location is `.agents/skills/`. Codex scans it from the working directory up to the repository root, and GitHub Copilot also reads it. Prefer this location for a repository shared across tools.
 
-- `.github/skills/`
-- `.codex/skills/`
-- `.claude/skills/`
+Tool-specific locations also work:
 
-Keep `SKILL.md` and its support folders together so relative paths remain valid.
+- `.claude/skills/` for Claude Code project skills.
+- `~/.claude/skills/` for personal Claude Code skills across all projects.
+- `.github/skills/` for GitHub Copilot.
 
 Rationale: Agent skills use progressive disclosure. References and assets load only when needed, but they must stay near `SKILL.md` for relative paths to work.
 

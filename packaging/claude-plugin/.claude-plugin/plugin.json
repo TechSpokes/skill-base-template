@@ -1,5 +1,6 @@
 {
   "name": "placeholder-skill",
+  "displayName": "Placeholder Skill",
   "version": "0.1.0",
   "description": "Placeholder plugin manifest for a generated agent skill.",
   "author": {
@@ -7,6 +8,7 @@
   },
   "homepage": "https://github.com/OWNER/REPOSITORY",
   "repository": "https://github.com/OWNER/REPOSITORY",
+  "license": "MIT",
   "keywords": [
     "agent-skill",
     "claude-plugin"
