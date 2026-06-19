@@ -263,7 +263,7 @@ Present a short synthesis the user can confirm or correct in one reading:
 - The key assumptions the readiness decision depends on, labeled as assumptions.
 - Anything narrowed, deferred, or resolved from a conflict.
 
-Ask the user to confirm or correct this synthesis. A correction is cheap; a wrong skill is expensive.
+Ask the user to confirm or correct this synthesis. A correction is cheap; a wrong skill is expensive. If the user corrects it, revise the design and confirm the corrected direction before construction begins.
 
 Scale the step to how much the readiness decision rested on the agent's own guesses. When intake was explicit and the decision rested on direct evidence with no material assumptions, a brief restatement is enough. When the decision rested on inference, scope narrowing, or conflict resolution, confirmation matters more, because the agent is acting on its interpretation rather than on stated intent.
 
