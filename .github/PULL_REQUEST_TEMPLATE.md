@@ -16,7 +16,7 @@ Which area changed?
 ## Validation
 
 - [ ] Ran `npm run validate`
-- [ ] Ran `npm run package -- v0.1.0` if packaging or release behavior changed
+- [ ] Ran `npm run package -- vX.Y.Z` with the intended tag if packaging or release behavior changed
 - [ ] Checked that generated repositories still transition cleanly from bootstrap mode to maintenance mode
 - [ ] Checked that no private intake or local machine paths were added
 

@@ -10,6 +10,14 @@ Template releases should publish the template source state and release notes.
 
 They must not upload placeholder generated skill ZIP assets. Those ZIPs are only meaningful after a generated repository replaces the placeholder skill with a real skill product.
 
+## How Changes Land
+
+All changes reach `main` through a branch and a pull request. Do not push directly to `main`.
+
+Open a branch, make the change, and open a pull request. The required check `Validate template scaffold` must pass on a branch that is up to date with `main`. Merge with a squash so history stays linear.
+
+Cut the release only after the change is merged. Bump the version, then push the `vX.Y.Z` tag. Pushing a tag is not a push to the protected branch, so the ruleset allows it.
+
 ## Release Checklist
 
 - Update `package.json`.

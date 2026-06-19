@@ -22,7 +22,9 @@ Leaving bootstrap files behind gives future agents two competing frames: build a
 
 ## Cleanup Is Required
 
-The normal path ends with deleting `.template/`. Keeping `.template/` is only acceptable when the repository is intentionally still being used as a template.
+The normal path ends with deleting `.template/` and `.plans/`. Keeping `.template/` is only acceptable when the repository is intentionally still being used as a template.
+
+Delete `.plans/` too. It is the template's own maintenance backlog and has no meaning in a generated skill repository.
 
 ## Files To Rewrite
 
@@ -61,10 +63,12 @@ It should include:
 
 - The generated skill's maintenance goal.
 - Required validation commands.
-- Versioning and release rules.
+- A short statement of how changes land, pointing to `docs/RELEASING.md`.
 - Skill reference organization rules.
 - Boundaries for raw intake, temp files, and release artifacts.
 - Definitions for high-risk terms used by the skill.
+
+Make `docs/RELEASING.md` the single source for how changes land and how a release is cut. Point `AGENTS.md` and `CONTRIBUTING.md` to it rather than repeating the steps, so the documents never drift apart.
 
 The final `AGENTS.md` should explain why important boundaries exist. A future agent can adapt a rule responsibly only when it understands the value the rule protects.
 
@@ -89,13 +93,83 @@ At minimum, check:
 
 Rationale: these files are public governance files. If they still mention the template author after generation, contributors and agents may route support, ownership, funding, or reviews to the wrong place.
 
+## Harden The Repository
+
+A generated repository made public starts with no protection. The maintenance `AGENTS.md` says never push directly to `main`, but nothing enforces it until the repository is hardened.
+
+Confirm with the user before changing repository settings. These are outward-facing actions on a public repository.
+
+Apply the settings with `gh`. Replace `OWNER/REPO` with the generated repository. The required status check is named `Validate skill package`, the job in the generated `ci.yml`. The CI workflow must already exist on the default branch so the check is selectable.
+
+Repository settings, squash-only merges and Discussions:
+
+```bash
+gh api repos/OWNER/REPO -X PATCH -F has_discussions=true -F allow_squash_merge=true -F allow_merge_commit=false -F allow_rebase_merge=false
+```
+
+Secret scanning and push protection:
+
+```bash
+gh api repos/OWNER/REPO -X PATCH --input - <<'JSON'
+{"security_and_analysis":{"secret_scanning":{"status":"enabled"},"secret_scanning_push_protection":{"status":"enabled"}}}
+JSON
+```
+
+Dependabot alerts and security updates:
+
+```bash
+gh api repos/OWNER/REPO/vulnerability-alerts -X PUT
+gh api repos/OWNER/REPO/automated-security-fixes -X PUT
+```
+
+Branch protection as a ruleset on the default branch:
+
+```bash
+gh api repos/OWNER/REPO/rulesets -X POST --input - <<'JSON'
+{
+  "name": "main protection",
+  "target": "branch",
+  "enforcement": "active",
+  "conditions": { "ref_name": { "include": ["~DEFAULT_BRANCH"], "exclude": [] } },
+  "bypass_actors": [],
+  "rules": [
+    { "type": "pull_request", "parameters": { "required_approving_review_count": 0, "dismiss_stale_reviews_on_push": true, "require_code_owner_review": false, "require_last_push_approval": false, "required_review_thread_resolution": true, "allowed_merge_methods": ["squash"] } },
+    { "type": "required_status_checks", "parameters": { "strict_required_status_checks_policy": true, "required_status_checks": [ { "context": "Validate skill package" } ] } },
+    { "type": "non_fast_forward" },
+    { "type": "deletion" },
+    { "type": "required_linear_history" }
+  ]
+}
+JSON
+```
+
+Required approvals are zero so a solo maintainer is not blocked, because a maintainer cannot approve their own pull request. Raise this to one and require code-owner review when a second maintainer is active.
+
+## Scaffold The Feedback Folder
+
+Install a `.skill-template-feedback/` folder in the generated repository root. It is the local channel for routing template gaps back upstream to this template.
+
+Copy `.template/generated/.skill-template-feedback/README.md` and `.gitkeep` into the generated repository root before deleting `.template/`. Confirm the git-ignore pattern below is present in the generated repository's `.gitignore`, which it inherits from the template.
+
+```gitignore
+.skill-template-feedback/*
+!.skill-template-feedback/.gitkeep
+!.skill-template-feedback/README.md
+```
+
+Only `README.md` and `.gitkeep` are tracked. Everything else in the folder stays local and never ships in the skill package.
+
+Record the practice in the maintenance `AGENTS.md`: when maintaining the generated skill reveals a template gap, capture it in `.skill-template-feedback/` and open an issue or pull request on `TechSpokes/skill-base-template` so future generated skills inherit the fix.
+
 ## Final Verification
 
 Before declaring cleanup complete, verify:
 
 - `.template/` is absent.
+- `.plans/` is absent.
 - `README.md` describes the generated skill.
 - `AGENTS.md` describes maintenance mode.
 - `src/SKILL.md` does not reference `.template/`.
+- `.skill-template-feedback/` exists with a tracked `README.md` and `.gitkeep`.
 - Release staging excludes `.intake/`.
 - Validation passes.

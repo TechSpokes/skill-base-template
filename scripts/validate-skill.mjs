@@ -222,10 +222,13 @@ function validateManifests() {
 
     try {
       const manifest = JSON.parse(readText(manifestPath));
-      for (const key of ["name", "version", "description"]) {
+      for (const key of ["name", "version", "description", "license"]) {
         if (!manifest[key]) {
           fail(`${manifestPath} is missing ${key}.`);
         }
+      }
+      if (manifestPath.includes(".claude-plugin") && !manifest.displayName) {
+        fail(`${manifestPath} is missing top-level displayName.`);
       }
     } catch (error) {
       fail(`${manifestPath} is not valid JSON: ${error.message}`);

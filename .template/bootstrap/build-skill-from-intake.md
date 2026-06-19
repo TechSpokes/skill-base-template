@@ -217,10 +217,10 @@ npm run validate
 When release packaging is needed, run:
 
 ```bash
-npm run package -- v0.1.0
+npm run package -- vX.Y.Z
 ```
 
-Use the actual version tag instead of `v0.1.0`.
+Use the actual version tag instead of `vX.Y.Z`.
 
 Rationale: Packaging is where private intake and bootstrap files can accidentally leak. Validation protects the boundary between construction material and runtime skill artifacts.
 

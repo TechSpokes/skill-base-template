@@ -76,7 +76,7 @@ npm run validate
 Run:
 
 ```bash
-npm run package -- v0.1.0
+npm run package -- vX.Y.Z
 ```
 
 Use the intended release tag. Packaging writes release assets to `dist/assets/`.

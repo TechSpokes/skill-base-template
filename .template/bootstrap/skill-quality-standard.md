@@ -72,6 +72,23 @@ The `SKILL.md` body must include:
 
 Rationale: The frontmatter decides whether the skill loads. The body decides whether the activated agent can execute the workflow without reconstructing missing context.
 
+## Generated README Shape
+
+The generated `README.md` is the front page of the skill repository. A first-time reader should see what the skill does and how to install it before any maintainer detail.
+
+Order the README so value comes first, then installation, then usage, then a separated maintainer section.
+
+- Open with the value proposition in plain language.
+- Follow with an install-from-release section.
+- Then show how to use the skill.
+- Keep maintainer and contributor steps in a separated section below usage.
+
+The install section links to the repository's Releases page and names the three release assets: the standalone skill ZIP, the Claude plugin ZIP, and the Codex plugin ZIP. Tell readers to download the asset that matches their tool rather than cloning.
+
+Keep clone and maintainer commands such as `npm run validate` and `npm run package` out of the opening. Move conceptual and internal detail into `docs/` and link to it from the README. The install locations in the README and in `docs/INSTALL.md` must agree.
+
+Rationale: A normal user landing on a published skill should be able to download a release and install it without cloning or Node. Leading with build instructions hides the skill's value behind maintainer concerns.
+
 ## Reference Rules
 
 Move durable detail into `src/references/` when it would make `SKILL.md` too long or too dense.
