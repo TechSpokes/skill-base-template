@@ -22,7 +22,9 @@ Leaving bootstrap files behind gives future agents two competing frames: build a
 
 ## Cleanup Is Required
 
-The normal path ends with deleting `.template/`. Keeping `.template/` is only acceptable when the repository is intentionally still being used as a template.
+The normal path ends with deleting `.template/` and `.plans/`. Keeping `.template/` is only acceptable when the repository is intentionally still being used as a template.
+
+Delete `.plans/` too. It is the template's own maintenance backlog and has no meaning in a generated skill repository.
 
 ## Files To Rewrite
 
@@ -143,13 +145,31 @@ JSON
 
 Required approvals are zero so a solo maintainer is not blocked, because a maintainer cannot approve their own pull request. Raise this to one and require code-owner review when a second maintainer is active.
 
+## Scaffold The Feedback Folder
+
+Install a `.skill-template-feedback/` folder in the generated repository root. It is the local channel for routing template gaps back upstream to this template.
+
+Copy `.template/generated/.skill-template-feedback/README.md` and `.gitkeep` into the generated repository root before deleting `.template/`. Confirm the git-ignore pattern below is present in the generated repository's `.gitignore`, which it inherits from the template.
+
+```gitignore
+.skill-template-feedback/*
+!.skill-template-feedback/.gitkeep
+!.skill-template-feedback/README.md
+```
+
+Only `README.md` and `.gitkeep` are tracked. Everything else in the folder stays local and never ships in the skill package.
+
+Record the practice in the maintenance `AGENTS.md`: when maintaining the generated skill reveals a template gap, capture it in `.skill-template-feedback/` and open an issue or pull request on `TechSpokes/skill-base-template` so future generated skills inherit the fix.
+
 ## Final Verification
 
 Before declaring cleanup complete, verify:
 
 - `.template/` is absent.
+- `.plans/` is absent.
 - `README.md` describes the generated skill.
 - `AGENTS.md` describes maintenance mode.
 - `src/SKILL.md` does not reference `.template/`.
+- `.skill-template-feedback/` exists with a tracked `README.md` and `.gitkeep`.
 - Release staging excludes `.intake/`.
 - Validation passes.
