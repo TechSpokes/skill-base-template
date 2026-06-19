@@ -4,6 +4,14 @@
 
 - No unreleased changes.
 
+## [v1.3.0]
+
+- Enrich `.github/FUNDING.yml` with documented sponsorship platform examples, matching the descendant repository.
+- Mirror the descendant's community setup on the template repository: enable Discussions, disable Projects and Wiki.
+- Require a core-principles-and-decision-stance section in the generated `AGENTS.md`, so the skill's goals and values reach future agents that make local decisions.
+- Add an alignment-confirmation step to the exploratory phase: after the build readiness gate and before construction, the agent confirms its synthesized understanding with the user, distinct from the resolution ladder's `Ask` rung.
+- Gate Phase 3 construction on the confirmed design synthesis in the bootstrap workflow, and add the matching must-follow rule to `AGENTS.md`.
+
 ## [v1.2.0]
 
 - Pin the generated CI and release workflows to `actions/checkout@v7` and `actions/setup-node@v6`, and use a `v0.0.0` placeholder for the packaging smoke test, so new repositories do not start a major behind or read the smoke-test tag as a real version.

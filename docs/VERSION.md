@@ -2,7 +2,7 @@
 
 The template starts public release at version `1.0.0`.
 
-The current template version is `1.2.0`.
+The current template version is `1.3.0`.
 
 Generated skill repositories should reset or continue versioning according to the generated skill's release policy.
 
