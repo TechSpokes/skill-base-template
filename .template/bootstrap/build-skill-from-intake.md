@@ -76,7 +76,7 @@ Use `.template/bootstrap/intake-adequacy-and-resolution.md` for the full procedu
 
 If intake is adequate, record the assessment and continue to Phase 1.
 
-If intake is missing build-critical evidence, resolve the gap through extraction, inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Do not start `src/SKILL.md` until the build readiness gate passes.
+If intake is missing build-critical evidence, resolve the gap through extraction, inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Do not start `src/SKILL.md` until the build readiness gate passes and the agent's understanding is confirmed with the user.
 
 Required temporary artifacts:
 
@@ -114,6 +114,10 @@ Create a temporary design note in `.template/state/skill-design.md` while bootst
 The design note is temporary. Move durable architecture information into `docs/ARCHITECTURE.md` before cleanup.
 
 Rationale: The design note gives the bootstrap agent a place to reason before committing to permanent files. Durable decisions move into docs because future maintainers need the why, not the temporary scratchpad.
+
+Before Phase 3, confirm this design synthesis with the user. Present the skill candidate, goal, activation and non-activation boundary, workflow outline, and key assumptions, and ask the user to confirm or correct them. See the alignment confirmation step in `.template/bootstrap/intake-adequacy-and-resolution.md`. Do not begin construction until the direction is confirmed.
+
+Rationale: The agent has now synthesized a design from intake and its own inferences. Confirming the direction before construction keeps the skill aligned with the user's intent and makes a correction cheap relative to rebuilding.
 
 ## Phase 3: Build The Skill Product
 

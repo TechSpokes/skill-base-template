@@ -62,6 +62,8 @@ The final `AGENTS.md` must support future maintenance.
 It should include:
 
 - The generated skill's maintenance goal.
+- The skill's core principles, each with the rationale it protects.
+- A decision stance for how a future agent should act when the exact instruction does not fit.
 - Required validation commands.
 - A short statement of how changes land, pointing to `docs/RELEASING.md`.
 - Skill reference organization rules.
@@ -69,6 +71,8 @@ It should include:
 - Definitions for high-risk terms used by the skill.
 
 Make `docs/RELEASING.md` the single source for how changes land and how a release is cut. Point `AGENTS.md` and `CONTRIBUTING.md` to it rather than repeating the steps, so the documents never drift apart.
+
+The core principles and the decision stance are how the skill's goals and values reach future agents who make local decisions. State each principle as a durable commitment with its reason. State the decision stance concretely: diagnose the situation against the skill's goal, weigh the local context, and bring the decision to the user rather than acting alone or silently deferring.
 
 The final `AGENTS.md` should explain why important boundaries exist. A future agent can adapt a rule responsibly only when it understands the value the rule protects.
 

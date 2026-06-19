@@ -178,6 +178,8 @@ Do not preserve bootstrap rationale in generated repositories unless it helps ma
 When rewriting `AGENTS.md` for maintenance mode:
 
 - State the generated skill maintenance goal in the summary.
+- State the skill's core principles, each with the rationale it protects.
+- State a decision stance that tells a future agent how to act when the exact instruction does not fit.
 - List hard constraints before guidelines.
 - Define specialized terms early.
 - Include required validation commands.
@@ -186,6 +188,8 @@ When rewriting `AGENTS.md` for maintenance mode:
 - Move long explanations to `docs/`.
 
 Carry the rationale for any rule that future agents may need to adapt. A maintenance agent should know not only that release artifacts exclude intake, but also that the exclusion protects privacy and prevents raw source material from being mistaken for a polished skill resource.
+
+The core principles and the decision stance are how goals and values reach future agents who make local decisions. State each principle as a durable commitment with its reason, so an agent can tell what to preserve when conditions differ. State the decision stance as a concrete way to act under uncertainty: diagnose the situation against the skill's goal, weigh the local context, and bring the decision to the user rather than acting alone or silently deferring. A rule tells an agent what to do; the principles and stance tell it how to decide when no rule fits.
 
 ## Generated README Rules
 
