@@ -88,6 +88,46 @@ Use different verification modes for different risks:
 
 The reason: no single intelligence type catches every failure mode.
 
+## How Meaning Survives Transport
+
+These principles explain why the rules above matter when an instruction crosses between humans, agents, and tools.
+
+### Write For One-Way Delivery
+
+A directive file is read later by a recipient who cannot ask you to clarify. Anticipate the questions a future agent would ask.
+
+The reason: a gap you leave becomes a silent wrong guess, not a question.
+
+### Protect The Weakest Stage
+
+Meaning passes through many stages from intent to action, and the weakest stage caps the result. The stage that fails most often is the one where the goal was never stated.
+
+The reason: stating the goal raises fidelity more than polishing already-clear rules.
+
+### Track Goal Survival Separately From Rule Survival
+
+Rules often arrive intact while the reason behind them is lost, which produces confident but brittle compliance. Check whether the purpose survived, not only whether the steps did.
+
+The reason: an agent that keeps the rule but loses the goal defends the wrong behavior when conditions change.
+
+### Treat Distortion As Worse Than Loss
+
+Missing information leaves a visible gap. A distorted instruction looks complete, parses cleanly, and produces confident wrong action that passes output checks.
+
+The reason: a result that ran and looked right is not evidence the instruction was understood.
+
+### Design For The Boundary Being Crossed
+
+Each handoff loses something specific. Prose aimed at a human invites unwarranted trust from an agent; a rule aimed at a tool drops what is not expressible as a rule; paraphrase between agents drifts toward generic meaning.
+
+The reason: write for the specific recipient and boundary, not for an AI in general.
+
+### Repeat Critical Constraints On Purpose
+
+Repeating a critical constraint where it is needed raises the chance it is processed at least once under partial loading.
+
+The reason: deduplication assumes full reading, which rarely holds for agents.
+
 ## How To Use This File
 
 Read this file before designing or rewriting generated repository instructions.

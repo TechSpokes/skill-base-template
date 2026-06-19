@@ -189,6 +189,14 @@ Carry the rationale for any rule that future agents may need to adapt. A mainten
 
 The core principles and the decision stance are how goals and values reach future agents who make local decisions. State each principle as a durable commitment with its reason, so an agent can tell what to preserve when conditions differ. State the decision stance as a concrete way to act under uncertainty: diagnose the situation against the skill's goal, weigh the local context, and bring the decision to the user rather than acting alone or silently deferring. A rule tells an agent what to do; the principles and stance tell it how to decide when no rule fits.
 
+Give the generated `AGENTS.md` a predictable shape, in this order: a title naming the folder and its purpose; a Summary that leads with the highest-value guidance; Must-follow rules as hard constraints; Must-read documents as paths each paired with why it matters; Agent guidelines as prose preferences; Context as background that holds no requirements; and optional References.
+
+Put read-depth guidance in the Summary, so an agent under context limits knows how much to read. Say when the Summary alone is enough and what to do if the full file cannot be loaded.
+
+Keep the file short, targeting under 100 lines. Move overflow into `docs/` or references and point to it from Must-read documents, because a long file is more likely to be loaded only in part.
+
+Write `AGENTS.md` only when a standalone Summary would be useful. An absent file is better than a low-value one.
+
 ## Generated README Rules
 
 When rewriting `README.md` for the generated skill:

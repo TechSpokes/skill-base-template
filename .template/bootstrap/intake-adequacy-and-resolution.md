@@ -207,6 +207,17 @@ Stop before building when the remaining gap would force fabrication, unsafe acce
 
 State the blocking gap and the smallest input that would unblock the work.
 
+## Asking High-Value Questions
+
+When local resolution is exhausted and a question is necessary, make it count.
+
+- Ask only about genuine capability gaps, conflicts, priorities, or permissions. A gap you can extract, infer, or discover is research you skipped, not a question.
+- Phrase a question as a confirm-or-refute test of a specific assumption, not an open prompt. Say what would confirm it and what would refute it.
+- When the intake reads more than one way, list the competing interpretations and ask the one question whose answer separates the most of them.
+- Separate what cannot change from what merely should not. Only fixed constraints can block a build.
+- Do not turn nearby mentions or ordering in the intake into a requirement, and do not assume a request for one case applies to every case. Confirm intent first.
+- After each answer, recompute the remaining gaps. A resolved blocker can shift the goal and reveal new ones.
+
 ## Common Intake States
 
 ### Empty Intake
