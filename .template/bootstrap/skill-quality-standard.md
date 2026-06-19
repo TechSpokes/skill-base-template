@@ -1,7 +1,5 @@
 # Skill Quality Standard
 
-This file is a distilled operational version of TechSpokes skill packaging, Markdown form engineering, and directive-file quality guidance.
-
 ## Goal
 
 Define the minimum quality bar for skills generated from this template.
@@ -87,6 +85,10 @@ The install section links to the repository's Releases page and names the three 
 
 Keep clone and maintainer commands such as `npm run validate` and `npm run package` out of the opening. Move conceptual and internal detail into `docs/` and link to it from the README. The install locations in the README and in `docs/INSTALL.md` must agree.
 
+Required elements: an H1 that is the skill name, a first paragraph that says what the skill does without relying on another file, and the license stated or linked. Front-load anything decision-critical, such as prerequisites or warnings, because readers consume the page in part.
+
+Avoid walls of text, nested lists, horizontal rules, and bold used as a heading. Tag every code fence with a language, give images alt text, and flag any destructive or privileged command right before it. Aim for roughly 100 to 200 lines; treat 500 or more as a signal to move detail into `docs/`.
+
 Rationale: A normal user landing on a published skill should be able to download a release and install it without cloning or Node. Leading with build instructions hides the skill's value behind maintainer concerns.
 
 ## Reference Rules
@@ -102,6 +104,12 @@ Rationale: References protect context budget. A skill that forces every task to 
 Use `src/test-fixtures/` for prompts or examples that verify the skill after changes. Do not load fixtures during ordinary skill use unless the task is specifically to test the skill.
 
 Rationale: Fixtures preserve behavioral expectations across maintenance changes. They are evidence that the skill still works, not part of normal execution.
+
+## Script Rules
+
+When a generated skill ships runnable scripts, comment them to explain why the code does what it does and any non-obvious constraints, not to narrate what each line does. Prefer structured docblock tags over prose so the comments stay parseable and stay out of search noise.
+
+Rationale: A future agent maintaining the skill cannot ask the original author. Comments that protect intent and constraints survive that handoff; line-by-line narration does not.
 
 ## Cross-Intelligence Communication Rules
 

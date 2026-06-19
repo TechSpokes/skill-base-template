@@ -1,6 +1,6 @@
 # Build Skill From Intake
 
-This file is part of the TechSpokes Skill Base Template bootstrap system. It distills TechSpokes guidance on agent skill creation, instruction design, and repository maintenance into an actionable workflow.
+This file is the end-to-end workflow an agent follows to build a skill from intake.
 
 ## Goal
 
@@ -76,7 +76,7 @@ Use `.template/bootstrap/intake-adequacy-and-resolution.md` for the full procedu
 
 If intake is adequate, record the assessment and continue to Phase 1.
 
-If intake is missing build-critical evidence, resolve the gap through extraction, inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Do not start `src/SKILL.md` until the build readiness gate passes.
+If intake is missing build-critical evidence, resolve the gap through extraction, inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Do not start `src/SKILL.md` until the build readiness gate passes and the agent's understanding is confirmed with the user.
 
 Required temporary artifacts:
 
@@ -114,6 +114,10 @@ Create a temporary design note in `.template/state/skill-design.md` while bootst
 The design note is temporary. Move durable architecture information into `docs/ARCHITECTURE.md` before cleanup.
 
 Rationale: The design note gives the bootstrap agent a place to reason before committing to permanent files. Durable decisions move into docs because future maintainers need the why, not the temporary scratchpad.
+
+Before Phase 3, confirm this design synthesis with the user. Present the skill candidate, goal, activation and non-activation boundary, workflow outline, and key assumptions, and ask the user to confirm or correct them. See the alignment confirmation step in `.template/bootstrap/intake-adequacy-and-resolution.md`. Do not begin construction until the direction is confirmed.
+
+Rationale: The agent has now synthesized a design from intake and its own inferences. Confirming the direction before construction keeps the skill aligned with the user's intent and makes a correction cheap relative to rebuilding.
 
 ## Phase 3: Build The Skill Product
 
@@ -230,12 +234,17 @@ Convert the repository to maintenance mode after the generated skill is accepted
 
 Required cleanup:
 
+- Install `.skill-template-feedback/` in the repository root from `.template/generated/`, and confirm its git-ignore pattern is present.
+- Harden the repository as described in `.template/bootstrap/cleanup-and-boundaries.md`.
 - Delete `.template/`.
+- Delete `.plans/`.
 - Rewrite `README.md` for the generated skill.
 - Rewrite `AGENTS.md` for maintaining the generated skill.
 - Keep `.intake/README.md` if future raw update intake is useful.
 - Remove raw intake files when they should not remain in source control.
 - Ensure release packaging excludes `.template/` and `.intake/`.
+
+Use `.template/bootstrap/cleanup-and-boundaries.md` for the full handoff, including repository hardening, the community file rewrites, and the feedback-folder details.
 
 Rationale: Cleanup converts the repository's identity. Before cleanup, the repository is a skill factory. After cleanup, it is the skill.
 

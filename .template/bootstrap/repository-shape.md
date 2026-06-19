@@ -1,7 +1,5 @@
 # Repository Shape
 
-This file is a distilled operational version of TechSpokes repository-structure guidance for agent-maintained skill packages.
-
 ## Goal
 
 Define the repository states before bootstrap, during bootstrap, and after cleanup.
@@ -29,6 +27,7 @@ skill-repository/
 |-- README.md
 |-- .intake/
 |-- .template/
+|-- .plans/
 |-- src/
 |-- docs/
 |-- packaging/
@@ -36,7 +35,7 @@ skill-repository/
 `-- .github/
 ```
 
-In bootstrap mode, `.template/` is present and `AGENTS.md` points agents to `.template/bootstrap/`.
+In bootstrap mode, `.template/` is present and `AGENTS.md` points agents to `.template/bootstrap/`. The template also ships `.plans/`, its own maintenance backlog, which is removed during cleanup.
 
 Rationale: Bootstrap instructions need to be discoverable during construction, but visibly temporary so agents know they must not package or preserve them.
 
@@ -68,6 +67,7 @@ skill-name/
 |-- CHANGELOG.md
 |-- LICENSE
 |-- .intake/
+|-- .skill-template-feedback/
 |-- src/
 |-- docs/
 |-- packaging/
@@ -76,6 +76,8 @@ skill-name/
 ```
 
 Maintenance-mode `AGENTS.md` must no longer describe bootstrap. It must describe how future agents maintain the generated skill.
+
+`.skill-template-feedback/` is the local channel for routing template gaps back upstream. Only its `README.md` and `.gitkeep` are tracked; everything else stays local.
 
 Rationale: The closest instruction file becomes the future agent's operating frame. If it still describes bootstrap, future maintenance can drift toward rebuilding instead of preserving.
 

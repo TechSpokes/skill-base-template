@@ -1,10 +1,10 @@
 # Cross-Intelligence Communication Rules
 
-This file is a distilled operational version of TechSpokes cross-intelligence communication guidance for generated skill repositories.
+This file gives the communication rules for writing instruction files that future agents, humans, and tools can all follow.
 
 ## Goal
 
-Preserve the practical lessons from the local communication theory files while building and maintaining generated skill repositories.
+Write generated repository instructions that survive transfer across humans, LLM agents, and tools, under different context windows and tool permissions.
 
 ## Core Rationale
 
@@ -49,11 +49,9 @@ When generating instructions for agents, always encode:
 
 If one of these is missing, future agents may comply with the surface form while breaking the intended system behavior.
 
-## Source Theory Position
+## Related Guidance
 
-These rules are adapted from TechSpokes research on cross-intelligence communication, directive-file design, README structure, and problem framing.
-
-The full research files are not vendored into this template. They are too large and exploratory for bootstrap context. Use `.template/bootstrap/theory-context.md` as the operational summary and apply the practical rules below.
+For the reasoning model behind these rules, see `.template/bootstrap/theory-context.md`. Apply the practical rules below when writing any instruction file.
 
 ## Core Principles
 
@@ -178,6 +176,8 @@ Do not preserve bootstrap rationale in generated repositories unless it helps ma
 When rewriting `AGENTS.md` for maintenance mode:
 
 - State the generated skill maintenance goal in the summary.
+- State the skill's core principles, each with the rationale it protects.
+- State a decision stance that tells a future agent how to act when the exact instruction does not fit.
 - List hard constraints before guidelines.
 - Define specialized terms early.
 - Include required validation commands.
@@ -186,6 +186,16 @@ When rewriting `AGENTS.md` for maintenance mode:
 - Move long explanations to `docs/`.
 
 Carry the rationale for any rule that future agents may need to adapt. A maintenance agent should know not only that release artifacts exclude intake, but also that the exclusion protects privacy and prevents raw source material from being mistaken for a polished skill resource.
+
+The core principles and the decision stance are how goals and values reach future agents who make local decisions. State each principle as a durable commitment with its reason, so an agent can tell what to preserve when conditions differ. State the decision stance as a concrete way to act under uncertainty: diagnose the situation against the skill's goal, weigh the local context, and bring the decision to the user rather than acting alone or silently deferring. A rule tells an agent what to do; the principles and stance tell it how to decide when no rule fits.
+
+Give the generated `AGENTS.md` a predictable shape, in this order: a title naming the folder and its purpose; a Summary that leads with the highest-value guidance; Must-follow rules as hard constraints; Must-read documents as paths each paired with why it matters; Agent guidelines as prose preferences; Context as background that holds no requirements; and optional References.
+
+Put read-depth guidance in the Summary, so an agent under context limits knows how much to read. Say when the Summary alone is enough and what to do if the full file cannot be loaded.
+
+Keep the file short, targeting under 100 lines. Move overflow into `docs/` or references and point to it from Must-read documents, because a long file is more likely to be loaded only in part.
+
+Write `AGENTS.md` only when a standalone Summary would be useful. An absent file is better than a low-value one.
 
 ## Generated README Rules
 

@@ -14,6 +14,8 @@ All five issues originate from one descendant repository, [skill-postgres-intros
 | [0006](0006-repo-hardening-and-release-process.md) | #6 | Repository hardening, branch protection, release process | in-progress | 2 |
 | [0007](0007-template-feedback-folder.md) | #7 | Scaffold `.skill-template-feedback/` in generated repos | in-progress | 3 |
 | [0008](0008-template-release-process.md) | none | Update the template's own release process and ship v1.2.0 | in-progress | 4 |
+| [0009](0009-community-and-sponsorship.md) | none | Mirror the descendant's community and sponsorship setup | in-progress | 5 |
+| [0010](0010-bootstrap-instruction-improvements.md) | none | Goals-and-values transmission and an alignment-confirmation gate | in-progress | 5 |
 
 ## Progress
 
@@ -22,6 +24,10 @@ Phases 1 through 3 are implemented and committed on the `template-maintenance-ba
 Plan 0008 is partially implemented. The branch-and-pull-request flow is documented in `docs/TEMPLATE-RELEASING.md`, and the template's own workflows are pinned to `actions/checkout@v7` with the `v0.0.0` smoke-test tag. The remaining 0008 work is outward-facing and gated on user confirmation: hardening the live `TechSpokes/skill-base-template` repository and cutting template v1.2.0.
 
 These remain for the release step and are not yet done: the version bump to `1.2.0` in `package.json` and `docs/VERSION.md`, the `## [v1.2.0]` changelog section, and `docs/releases/v1.2.0.md`.
+
+### Phase 5
+
+Plans 0009 and 0010 are implemented on the `template-community-and-bootstrap` branch and ship together as template v1.3.0. Plan 0009 mirrors the descendant's community and sponsorship setup; its live repository settings were applied with user authorization. Plan 0010 strengthens goals-and-values transmission in the generated `AGENTS.md` and adds an alignment-confirmation step before skill construction.
 
 ## Implementation roadmap
 

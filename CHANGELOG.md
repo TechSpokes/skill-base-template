@@ -4,6 +4,19 @@
 
 - No unreleased changes.
 
+## [v1.3.0]
+
+- Add documented sponsorship platform examples to `.github/FUNDING.yml`.
+- Enable Discussions and disable Projects and Wiki on the template repository.
+- Require a core-principles-and-decision-stance section in the generated `AGENTS.md`, so the skill's goals and values reach future agents that make local decisions.
+- Add an alignment-confirmation step to the exploratory phase: after the build readiness gate and before construction, the agent confirms its synthesized understanding with the user, distinct from the resolution ladder's `Ask` rung.
+- Gate Phase 3 construction on the confirmed design synthesis in the bootstrap workflow, and add the matching must-follow rule to `AGENTS.md`.
+- Reframe the bootstrap instruction files to address the executing agent directly, keeping authorship attribution in `docs/PROVENANCE.md`.
+- Document `.plans/` and `.skill-template-feedback/` in the repository-shape trees and the Phase 7 cleanup steps for consistency.
+- Distill the AGENTS.md and README authoring guidance into the bootstrap docs: the generated `AGENTS.md` section shape, read-depth and under-100-line size guidance, and README required elements, anti-patterns, and sizing.
+- Add cross-intelligence transport principles to the reasoning model: one-way delivery, the weakest stage, goal survival, distortion, boundary-specific design, and deliberate redundancy.
+- Add an "Asking High-Value Questions" guide to the exploratory phase and a `Script Rules` section for commenting any scripts a generated skill ships.
+
 ## [v1.2.0]
 
 - Pin the generated CI and release workflows to `actions/checkout@v7` and `actions/setup-node@v6`, and use a `v0.0.0` placeholder for the packaging smoke test, so new repositories do not start a major behind or read the smoke-test tag as a real version.

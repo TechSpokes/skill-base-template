@@ -207,6 +207,17 @@ Stop before building when the remaining gap would force fabrication, unsafe acce
 
 State the blocking gap and the smallest input that would unblock the work.
 
+## Asking High-Value Questions
+
+When local resolution is exhausted and a question is necessary, make it count.
+
+- Ask only about genuine capability gaps, conflicts, priorities, or permissions. A gap you can extract, infer, or discover is research you skipped, not a question.
+- Phrase a question as a confirm-or-refute test of a specific assumption, not an open prompt. Say what would confirm it and what would refute it.
+- When the intake reads more than one way, list the competing interpretations and ask the one question whose answer separates the most of them.
+- Separate what cannot change from what merely should not. Only fixed constraints can block a build.
+- Do not turn nearby mentions or ordering in the intake into a requirement, and do not assume a request for one case applies to every case. Confirm intent first.
+- After each answer, recompute the remaining gaps. A resolved blocker can shift the goal and reveal new ones.
+
 ## Common Intake States
 
 ### Empty Intake
@@ -250,6 +261,26 @@ Document deferred adjacent skills separately instead of inflating the first skil
 Require stronger evidence for domains involving medicine, law, finance, security, credentials, destructive operations, production systems, or private data.
 
 Do not use low-confidence assumptions to pass the build readiness gate in high-risk areas.
+
+## Alignment Confirmation
+
+After the build readiness gate passes and before writing `src/SKILL.md`, confirm the agent's synthesized understanding with the user. The purpose is alignment, not design delegation.
+
+Present a short synthesis the user can confirm or correct in one reading:
+
+- The skill candidate and its goal in one or two sentences.
+- The activation and non-activation boundary.
+- The core workflow in outline.
+- The key assumptions the readiness decision depends on, labeled as assumptions.
+- Anything narrowed, deferred, or resolved from a conflict.
+
+Ask the user to confirm or correct this synthesis. A correction is cheap; a wrong skill is expensive. If the user corrects it, revise the design and confirm the corrected direction before construction begins.
+
+Scale the step to how much the readiness decision rested on the agent's own guesses. When intake was explicit and the decision rested on direct evidence with no material assumptions, a brief restatement is enough. When the decision rested on inference, scope narrowing, or conflict resolution, confirmation matters more, because the agent is acting on its interpretation rather than on stated intent.
+
+This step is distinct from the `Ask` rung of the resolution ladder. `Ask` resolves a specific blocking gap during resolution. Alignment confirmation validates the agent's overall interpretation after resolution, so construction starts from a shared understanding.
+
+Do not turn this into a questionnaire. Present synthesized understanding, not a list of design questions. The agent does the design work; the user confirms the direction. This keeps the step clear of the `Questionnaire Transfer` pitfall.
 
 ## Required Temporary Artifacts
 
@@ -312,5 +343,6 @@ Phase 0 is complete when:
 - Blocking gaps have been resolved, narrowed, asked, or stopped.
 - Unsafe discovery has been avoided or approved.
 - Build readiness has a clear decision.
+- The agent's synthesized understanding has been confirmed with the user.
 - Any created evidence is stored under `.intake/`.
 - Any temporary reasoning is stored under `.template/state/`.

@@ -42,7 +42,7 @@ When instructions appear to conflict, choose the option that best preserves the 
 - Treat `.intake/` as the only user-authored source area.
 - Read `.template/bootstrap/build-skill-from-intake.md` before changing skill files.
 - Run the intake adequacy gate before skill design, even when `.intake/` is empty or only contains a short idea.
-- Do not start `src/SKILL.md` until the build readiness gate passes.
+- Do not start `src/SKILL.md` until the build readiness gate passes and the agent's synthesized understanding is confirmed with the user.
 - Treat `.template/` as bootstrap control instructions, not domain source material.
 - Do not copy `.template/` content into `src/` unless the content is explicitly transformed into generic maintenance guidance.
 - Exclude `.template/`, `.intake/`, `tmp/`, `dist/`, `.git/`, and `.idea/` from release artifacts.
