@@ -4,6 +4,17 @@
 
 - No unreleased changes.
 
+## [v1.2.0]
+
+- Pin the generated CI and release workflows to `actions/checkout@v7` and `actions/setup-node@v6`, and use a `v0.0.0` placeholder for the packaging smoke test, so new repositories do not start a major behind or read the smoke-test tag as a real version.
+- Correct the standalone install locations in `docs/INSTALL.md` to lead with the cross-tool `.agents/skills/` and drop the incorrect `.codex/skills/`.
+- Skip `.gitkeep` and prune empty directories when packaging, so release ZIPs no longer ship an empty `assets/` folder.
+- Add `license` to both plugin manifests and a top-level `displayName` to the Claude manifest, and enforce both in validation.
+- Add bootstrap guidance for a value-first generated README that leads with the value proposition and install-from-release.
+- Add a repository hardening step to bootstrap cleanup with branch-protection and security `gh` commands, and make `docs/RELEASING.md` the single source for how changes land and how a release is cut.
+- Document the branch-and-pull-request flow for template releases and replace hardcoded `v0.1.0` release examples with `vX.Y.Z`.
+- Scaffold a `.skill-template-feedback/` folder in generated repositories to route template gaps back upstream, and delete the template's own `.plans/` backlog during cleanup.
+
 ## [v1.1.0]
 
 - Add Phase 0 intake adequacy and resolution workflow before skill construction.
