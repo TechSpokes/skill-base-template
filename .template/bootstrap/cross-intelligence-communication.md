@@ -1,10 +1,10 @@
 # Cross-Intelligence Communication Rules
 
-This file is a distilled operational version of TechSpokes cross-intelligence communication guidance for generated skill repositories.
+This file gives the communication rules for writing instruction files that future agents, humans, and tools can all follow.
 
 ## Goal
 
-Preserve the practical lessons from the local communication theory files while building and maintaining generated skill repositories.
+Write generated repository instructions that survive transfer across humans, LLM agents, and tools, under different context windows and tool permissions.
 
 ## Core Rationale
 
@@ -49,11 +49,9 @@ When generating instructions for agents, always encode:
 
 If one of these is missing, future agents may comply with the surface form while breaking the intended system behavior.
 
-## Source Theory Position
+## Related Guidance
 
-These rules are adapted from TechSpokes research on cross-intelligence communication, directive-file design, README structure, and problem framing.
-
-The full research files are not vendored into this template. They are too large and exploratory for bootstrap context. Use `.template/bootstrap/theory-context.md` as the operational summary and apply the practical rules below.
+For the reasoning model behind these rules, see `.template/bootstrap/theory-context.md`. Apply the practical rules below when writing any instruction file.
 
 ## Core Principles
 

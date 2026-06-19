@@ -1,7 +1,5 @@
 # Cleanup And Boundaries
 
-This file is a distilled operational version of TechSpokes guidance on repository handoff, authority boundaries, and maintenance-mode transition.
-
 ## Goal
 
 Convert a generated repository from bootstrap mode to maintenance mode without leaking bootstrap instructions into the final skill.

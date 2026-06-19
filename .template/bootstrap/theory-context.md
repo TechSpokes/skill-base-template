@@ -1,18 +1,12 @@
 # Theory Context For Bootstrap Agents
 
-This is a distilled operational version of TechSpokes cross-intelligence communication and problem-framing research. It is adapted for bootstrap agents using this public template and is not the full source theory.
+This file gives the reasoning model the bootstrap workflow relies on. Use it to make skill-design and instruction decisions that hold up when no specific rule applies.
 
 ## Goal
 
-Give bootstrap agents the reasoning model behind this template without requiring them to load large research files.
+Carry the reasoning model in compact operational form, so design choices preserve purpose rather than only following steps.
 
-## Decision
-
-Do not vendor the full theory files into generated repositories. Use this adapted operational summary instead.
-
-The original research files are long, exploratory, and partly project-local. Including them as-is would increase context load, expose non-template research material, and make bootstrap agents sort theory from action. The useful part for this template is the operating model below.
-
-## Values Preserved From The Theory
+## Values
 
 - Preserve purpose over literal wording.
 - Make implicit intent explicit.
@@ -52,7 +46,7 @@ High-risk terms in this template include:
 - `maintenance`
 - `authority`
 
-Define these terms when they affect behavior.
+Define these terms when they affect behavior. The `AGENTS.md` Definitions section carries the meanings this template uses.
 
 The reason: an agent can confidently choose a plausible meaning that is wrong for this repository.
 

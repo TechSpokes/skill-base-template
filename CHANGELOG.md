@@ -11,6 +11,8 @@
 - Require a core-principles-and-decision-stance section in the generated `AGENTS.md`, so the skill's goals and values reach future agents that make local decisions.
 - Add an alignment-confirmation step to the exploratory phase: after the build readiness gate and before construction, the agent confirms its synthesized understanding with the user, distinct from the resolution ladder's `Ask` rung.
 - Gate Phase 3 construction on the confirmed design synthesis in the bootstrap workflow, and add the matching must-follow rule to `AGENTS.md`.
+- Reframe the bootstrap instruction files to address the executing agent directly, keeping authorship attribution in `docs/PROVENANCE.md`.
+- Document `.plans/` and `.skill-template-feedback/` in the repository-shape trees and the Phase 7 cleanup steps for consistency.
 
 ## [v1.2.0]
 

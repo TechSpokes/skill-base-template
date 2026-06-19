@@ -1,6 +1,6 @@
 # Build Skill From Intake
 
-This file is part of the TechSpokes Skill Base Template bootstrap system. It distills TechSpokes guidance on agent skill creation, instruction design, and repository maintenance into an actionable workflow.
+This file is the end-to-end workflow an agent follows to build a skill from intake.
 
 ## Goal
 
@@ -234,12 +234,17 @@ Convert the repository to maintenance mode after the generated skill is accepted
 
 Required cleanup:
 
+- Install `.skill-template-feedback/` in the repository root from `.template/generated/`, and confirm its git-ignore pattern is present.
+- Harden the repository as described in `.template/bootstrap/cleanup-and-boundaries.md`.
 - Delete `.template/`.
+- Delete `.plans/`.
 - Rewrite `README.md` for the generated skill.
 - Rewrite `AGENTS.md` for maintaining the generated skill.
 - Keep `.intake/README.md` if future raw update intake is useful.
 - Remove raw intake files when they should not remain in source control.
 - Ensure release packaging excludes `.template/` and `.intake/`.
+
+Use `.template/bootstrap/cleanup-and-boundaries.md` for the full handoff, including repository hardening, the community file rewrites, and the feedback-folder details.
 
 Rationale: Cleanup converts the repository's identity. Before cleanup, the repository is a skill factory. After cleanup, it is the skill.
 

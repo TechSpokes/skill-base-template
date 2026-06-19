@@ -46,9 +46,21 @@ The changes target the operational checklists and the phase sequence rather than
 
 The alignment-confirmation step is explicitly distinguished from the resolution ladder's `Ask` rung. `Ask` resolves a specific blocking gap. Alignment confirmation validates the agent's overall interpretation so construction starts from shared understanding.
 
+## Part 3: Reader-standpoint language alignment
+
+An audit of the bootstrap control plane found the instruction files opened in author and provenance voice ("This file is a distilled operational version of TechSpokes research"), referenced private research the executing agent cannot see, and omitted recently added directories from the repository-shape and cleanup guidance.
+
+Reframe the opening of each bootstrap instruction file to address the executing agent and its task. Keep authorship attribution in `docs/PROVENANCE.md` and the README, not in each operational file. Remove references to private research the reader cannot access.
+
+Document `.plans/` and `.skill-template-feedback/` in the repository-shape trees, and add the feedback-folder install and the `.plans/` deletion to the Phase 7 cleanup steps, so the workflow and the shape guidance agree with `cleanup-and-boundaries.md`.
+
+Do not vendor or expose the private theory or approaches the template distills. The instruction files carry only the operational, public-appropriate form.
+
 ## Verification
 
 Confirm `cross-intelligence-communication.md` and `cleanup-and-boundaries.md` require a core-principles-and-decision-stance section in the generated `AGENTS.md`.
+
+Confirm the bootstrap instruction files open by addressing the executing agent, and that no file references private research material.
 
 Confirm `intake-adequacy-and-resolution.md` has an alignment-confirmation step that is distinguished from the `Ask` rung and scaled to the reliance on inference.
 

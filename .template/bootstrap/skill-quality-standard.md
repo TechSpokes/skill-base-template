@@ -1,7 +1,5 @@
 # Skill Quality Standard
 
-This file is a distilled operational version of TechSpokes skill packaging, Markdown form engineering, and directive-file quality guidance.
-
 ## Goal
 
 Define the minimum quality bar for skills generated from this template.
