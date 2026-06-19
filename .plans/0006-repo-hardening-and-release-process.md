@@ -2,7 +2,7 @@
 
 Issue: [#6](https://github.com/TechSpokes/skill-base-template/issues/6)
 
-Status: proposed
+Status: in-progress (template-side implemented on `template-maintenance-baseline`; live-repo hardening is outward-facing and pending)
 
 Layer: bootstrap guidance (`.template/bootstrap/cleanup-and-boundaries.md`), generated-skill docs (`docs/RELEASING.md`), and several governance files.
 

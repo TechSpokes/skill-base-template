@@ -2,7 +2,7 @@
 
 Issue: none. This plan organizes the release of plans 0003 through 0007 and applies issue #6's rigor to the template repository itself.
 
-Status: proposed
+Status: in-progress (Parts 1 and 3 done; Parts 2 and 4 are outward-facing and pending confirmation)
 
 Layer: template-own release machinery (`docs/TEMPLATE-RELEASING.md`, `.github/workflows/template-release-draft.yml`), template governance, and live repository settings.
 

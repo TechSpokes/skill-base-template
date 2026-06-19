@@ -2,7 +2,7 @@
 
 Issue: [#4](https://github.com/TechSpokes/skill-base-template/issues/4)
 
-Status: proposed
+Status: in-progress (implemented on `template-maintenance-baseline`)
 
 Layer: bootstrap guidance (`.template/bootstrap/*.md`), plus a link adjustment in `docs/INSTALL.md`.
 

@@ -2,7 +2,7 @@
 
 Issue: [#7](https://github.com/TechSpokes/skill-base-template/issues/7)
 
-Status: proposed
+Status: in-progress (implemented on `template-maintenance-baseline`)
 
 Layer: generated-workflow staging (`.template/generated/`), bootstrap guidance, and the root `.gitignore`.
 

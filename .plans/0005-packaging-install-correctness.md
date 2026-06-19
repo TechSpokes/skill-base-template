@@ -2,7 +2,7 @@
 
 Issue: [#5](https://github.com/TechSpokes/skill-base-template/issues/5)
 
-Status: proposed
+Status: in-progress (implemented on `template-maintenance-baseline`)
 
 Layer: live template files (`docs/`, `scripts/`, `packaging/`), with a supporting edit in bootstrap guidance.
 

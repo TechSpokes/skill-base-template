@@ -8,12 +8,20 @@ All five issues originate from one descendant repository, [skill-postgres-intros
 
 | Plan | Issue | Title | Status | Phase |
 | --- | --- | --- | --- | --- |
-| [0003](0003-ci-action-versions.md) | #3 | Current CI action versions and a placeholder smoke-test tag | proposed | 1 |
-| [0005](0005-packaging-install-correctness.md) | #5 | Install locations, `.gitkeep` pruning, plugin manifests | proposed | 1 |
-| [0004](0004-value-first-readme.md) | #4 | Value-first generated README with install-from-release | proposed | 2 |
-| [0006](0006-repo-hardening-and-release-process.md) | #6 | Repository hardening, branch protection, release process | proposed | 2 |
-| [0007](0007-template-feedback-folder.md) | #7 | Scaffold `.skill-template-feedback/` in generated repos | proposed | 3 |
-| [0008](0008-template-release-process.md) | none | Update the template's own release process and ship v1.2.0 | proposed | 4 |
+| [0003](0003-ci-action-versions.md) | #3 | Current CI action versions and a placeholder smoke-test tag | in-progress | 1 |
+| [0005](0005-packaging-install-correctness.md) | #5 | Install locations, `.gitkeep` pruning, plugin manifests | in-progress | 1 |
+| [0004](0004-value-first-readme.md) | #4 | Value-first generated README with install-from-release | in-progress | 2 |
+| [0006](0006-repo-hardening-and-release-process.md) | #6 | Repository hardening, branch protection, release process | in-progress | 2 |
+| [0007](0007-template-feedback-folder.md) | #7 | Scaffold `.skill-template-feedback/` in generated repos | in-progress | 3 |
+| [0008](0008-template-release-process.md) | none | Update the template's own release process and ship v1.2.0 | in-progress | 4 |
+
+## Progress
+
+Phases 1 through 3 are implemented and committed on the `template-maintenance-baseline` branch. Each plan above is implemented in code or documentation, with `npm run validate` and a package smoke test passing after each phase.
+
+Plan 0008 is partially implemented. The branch-and-pull-request flow is documented in `docs/TEMPLATE-RELEASING.md`, and the template's own workflows are pinned to `actions/checkout@v7` with the `v0.0.0` smoke-test tag. The remaining 0008 work is outward-facing and gated on user confirmation: hardening the live `TechSpokes/skill-base-template` repository and cutting template v1.2.0.
+
+These remain for the release step and are not yet done: the version bump to `1.2.0` in `package.json` and `docs/VERSION.md`, the `## [v1.2.0]` changelog section, and `docs/releases/v1.2.0.md`.
 
 ## Implementation roadmap
 
