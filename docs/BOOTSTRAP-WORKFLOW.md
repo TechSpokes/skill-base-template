@@ -111,7 +111,7 @@ Before release:
 Package locally with:
 
 ```bash
-npm run package -- v0.1.0
+npm run package -- vX.Y.Z
 ```
 
 Use the intended release tag. After bootstrap cleanup, GitHub release packaging runs through `.github/workflows/release-draft.yml`.

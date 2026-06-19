@@ -15,12 +15,16 @@ This project helps teams create structured, validated, releasable agent skill re
 - Add checks that prevent raw intake or bootstrap files from leaking into release assets.
 - Clarify rationale behind instructions when it improves downstream agent judgment.
 
+## How Changes Land
+
+Changes reach `main` only through a squash-merged pull request that passes the required check. Direct pushes to `main` are blocked. The full workflow and the repository protections are described in `docs/TEMPLATE-RELEASING.md`.
+
 ## Before Opening A Pull Request
 
 - Read `README.md`.
 - Read `docs/ARCHITECTURE.md`.
 - Run `npm run validate`.
-- Run `npm run package -- v0.1.0` when changing packaging or release behavior.
+- Run `npm run package -- vX.Y.Z` with the intended tag when changing packaging or release behavior.
 
 ## Documentation Standards
 
